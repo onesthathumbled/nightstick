@@ -1,4 +1,4 @@
-module VirusTotalAPI
+module VtApi
   require 'httparty'
 
   BASE_URL = ENV['BASE_URL'].freeze
