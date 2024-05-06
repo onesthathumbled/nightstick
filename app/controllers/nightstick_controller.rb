@@ -1,4 +1,4 @@
-require_relative '../lib/virus_total_api'
+require_relative '../lib/virus_total_api.rb'
 
 class NightstickController < ApplicationController
 
