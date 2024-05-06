@@ -64,14 +64,14 @@ curl -X GET \
 ## Response Format
 The API responds with JSON data containing the scan results or an error message in case of failure.
 
-### Success Response
+### Success Response:
 ```
 {
   "result": "Scan result data"
 }
 ```
 
-### Error Response
+### Error Response:
 ```
 {
   "error": "Error message"
