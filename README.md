@@ -1,24 +1,79 @@
-# README
+# Nightstick API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Base URL: `nightstick.jairah.online`
 
-Things you may want to cover:
+## Endpoints
 
-* Ruby version
+### 1. Upload a file for scanning
 
-* System dependencies
+- **Endpoint:** `POST /file`
+- **Parameters:** 
+  - `file` (multipart form-data): The file to be scanned.
 
-* Configuration
+### 2. Get a file report by hash
 
-* Database creation
+- **Endpoint:** `GET /hash`
+- **Parameters:** 
+  - `hash` (query parameter): The hash value of the file.
 
-* Database initialization
+### 3. Scan URL
 
-* How to run the test suite
+- **Endpoint:** `POST /url`
+- **Parameters:** 
+  - `url` (JSON): The URL to be scanned.
 
-* Services (job queues, cache servers, search engines, etc.)
+### 4. Get an IP address report
 
-* Deployment instructions
+- **Endpoint:** `GET /ip`
+- **Parameters:** 
+  - `ip` (query parameter): The IP address to be scanned.
 
-* ...
+## Request Examples
+
+### 1. Upload a file for scanning
+
+```bash
+curl -X POST \
+  -F "file=@/path/to/your/file" \
+  nightstick.jairah.online/file
+```
+
+### 2. Get a file report by hash
+
+```bash
+curl -X GET \
+  nightstick.jairah.online/hash?hash=your_file_hash
+```
+
+### 3. Scan URL
+
+```bash
+curl -X POST \
+  -H "Content-Type: application/json" \
+  -d '{"url": "https://example.com"}' \
+  nightstick.jairah.online/url
+```
+
+### 4. Get an IP address report
+
+```bash
+curl -X GET \
+  nightstick.jairah.online/ip?ip=your_ip_address
+```
+
+## Response Format
+The API responds with JSON data containing the scan results or an error message in case of failure.
+
+### Success Response
+```
+{
+  "result": "Scan result data"
+}
+```
+
+### Error Response
+```
+{
+  "error": "Error message"
+}
+```
